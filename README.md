@@ -5,30 +5,30 @@ Planet dev is a blog of web development news which you can view and read article
 ## Features
 The Users will be the visitors and the readers. The Following features will be provided for them.
 
-- `Browse in the website`<br>
+- <b>Browse in the website</b><br>
 The users can navigate in the website and see the articles and read it.
 
-- `Create an account`<br>
+- <b>Create an account</b><br>
 The users can create an account for example for save articles or ask questions to the client/server manager.
 
-- `Save articles`<br>
+- <b>Save articles</b><br>
 The users can save articles to favorite list if they liked it.
 
-- `Contact the admin`<br>
+- <b>Contact the admin</b><br>
 The users can write a message to the admin if they some questions or some inquiries.
 
 The admin will be the creator of the articles. The following features will be provided for him.
 
-- `Manage articles`<br>
+- <b>Manage articles</b><br>
 The admin can add, edit, or delete an article.
 
-- `Manage authors`<br>
+- <b>Manage authors</b><br>
 The admin can add, edit, or delete an author.
 
-- `View statistics`<br>
+- <b>View statistics</b><br>
 The admin can see the statistics of articles, users, authors. For example how many users are registered or how many author and articles ... .
 
-- `Search articles`<br>
+- <b>Search articles</b><br>
 The admin can search articles by (category, stack ...) for facilate the access to the articles.
 
 ## Requirements
