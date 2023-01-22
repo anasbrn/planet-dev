@@ -4,7 +4,7 @@ class Database{
     public $serverName = "localhost" ;
     public $serverUsername = "root" ;
     public $serverPassword = "" ;
-    public $databaseName = "planetdev";
+    public $databaseName = "planet-dev";
     public $connection = null;
 
      function connect(){

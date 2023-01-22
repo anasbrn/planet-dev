@@ -1,3 +1,6 @@
+<?php
+    include '../../Classes/Admin.php' ;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +20,7 @@
         <div>
             <div class="ml-5 mt-5">
                 <img src="../../img/user.png" class="rounded-full mb-3" width="50">
-                <div>admin@gmail.com</div>
+                <div><?= $_SESSION['email'] ?></div>
                 <div> Today's date <b><?= date('y-m-d') ?></b> </div>
             </div>
 
