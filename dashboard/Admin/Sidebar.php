@@ -1,5 +1,8 @@
 <?php
     include '../../Classes/Admin.php' ;
+    include '../../Classes/Author.php' ;
+    include '../../Classes/Article.php' ;
+    include '../../Classes/Category.php' ;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,8 +45,8 @@
                 </div>
 
                 <div class="mb-10">
-                    <i class="fa fa-gear p-2 bg-slate-200 rounded text-slate-400 mr-3" id="iconSettings"></i>
-                    <a class="text-slate-400" style="cursor: pointer;" onclick="switchToSettings()" id="settingsHover">Settings</a>
+                    <i class="fa fa-folder-open p-2 bg-slate-200 rounded text-slate-400 mr-3" id="iconCategories"></i>
+                    <a class="text-slate-400" style="cursor: pointer;" onclick="switchToCategories()" id="categoriesHover">Categories</a>
                 </div>
 
                 <div class="mt-44 mb-5 hover:color-orange-500">
@@ -55,22 +58,25 @@
     </section>
 
     <section class="mx-10 mt-10" style="width: 100%;">
-    <div id="dashboard">
-        <?php include 'dashboard.php' ; ?>
-    </div>
+        <div id="dashboardPage">
+            <?php include 'dashboard.php' ; ?>
+        </div>
 
-    <div id="articles" class="hidden">
-        <?php include 'articles.php' ; ?>
-    </div>
+        <div id="articlesPage" class="hidden">
+            <?php include 'articles.php' ; ?>
+        </div>
 
-    <div id="authors" class="hidden">
-        <?php include 'authors.php' ; ?>
-    </div>
+        <div id="authorsPage" class="hidden">
+            <?php include 'authors.php' ; ?>
+        </div>
 
-    <div id="settings" class="hidden">
-        <?php include 'settings.php' ; ?>
-    </div>
+        <div id="categoriesPage" class="hidden">
+            <?php include 'categories.php' ; ?>
+        </div>
 
+        <div id="editCategoriesPage" class="hidden">
+            <?php include 'editCategory.php' ; ?>
+        </div>
     </section>
 
 

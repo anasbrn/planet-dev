@@ -1,62 +1,72 @@
 //Dashboard Navigation
 function switchToArticles(){
-    $('#articles').removeClass('hidden') ;
-    $('#dashboard').addClass('hidden') ;
-    $('#authors').addClass('hidden') ;
-    $('#settings').addClass('hidden') ;
+    $('#articlesPage').removeClass('hidden') ;
+    $('#dashboardPage').addClass('hidden') ;
+    $('#authorsPage').addClass('hidden') ;
+    $('#categoriesPage').addClass('hidden') ;
     $('#articlesHover').css("color", "#f97316") ;
     $('#iconArticles').css("color", "#f97316") ;
     $('#authorsHover').css("color", "#94a3b8") ;
     $('#iconAuthors').css("color", "#94a3b8") ;
-    $('#settingsHover').css("color", "#94a3b8") ;
-    $('#iconSettings').css("color", "#94a3b8") ;
+    $('#categoriesHover').css("color", "#94a3b8") ;
+    $('#iconCategories').css("color", "#94a3b8") ;
     $('#dashboardHover').css("color", "#94a3b8") ;
     $('#iconDashboard').css("color", "#94a3b8") ;
+    $('#editCategoriesPage').addClass('hidden');
 }
 
 function switchToAuthors(){
-    $('#authors').removeClass('hidden');
-    $('#articles').addClass('hidden');
-    $('#dashboard').addClass('hidden');
-    $('#settings').addClass('hidden');
+    $('#authorsPage').removeClass('hidden');
+    $('#articlesPage').addClass('hidden');
+    $('#dashboardPage').addClass('hidden');
+    $('#categoriesPage').addClass('hidden');
     $('#authorsHover').css("color", "#f97316") ;
     $('#iconAuthors').css("color", "#f97316") ;
     $('#articlesHover').css("color", "#94a3b8") ;
     $('#iconArticles').css("color", "#94a3b8") ;
-    $('#settingsHover').css("color", "#94a3b8") ;
-    $('#iconSettings').css("color", "#94a3b8") ;
+    $('#categoriesHover').css("color", "#94a3b8") ;
+    $('#iconCategories').css("color", "#94a3b8") ;
     $('#dashboardHover').css("color", "#94a3b8") ;
     $('#iconDashboard').css("color", "#94a3b8") ;
+    $('#editCategoriesPage').addClass('hidden');
 }
 
-function switchToSettings(){
-    $('#settings').removeClass('hidden');
-    $('#authors').addClass('hidden');
-    $('#articles').addClass('hidden');
-    $('#dashboard').addClass('hidden');
-    $('#settingsHover').css("color", "#f97316") ;
-    $('#iconSettings').css("color", "#f97316") ;
+function switchToCategories(){
+    $('#categoriesPage').removeClass('hidden');
+    $('#authorsPage').addClass('hidden');
+    $('#articlesPage').addClass('hidden');
+    $('#dashboardPage').addClass('hidden');
+    $('#categoriesHover').css("color", "#f97316") ;
+    $('#iconCategories').css("color", "#f97316") ;
     $('#articlesHover').css("color", "#94a3b8") ;
     $('#iconArticles').css("color", "#94a3b8") ;
     $('#authorsHover').css("color", "#94a3b8") ;
     $('#iconAuthors').css("color", "#94a3b8") ;
     $('#dashboardHover').css("color", "#94a3b8") ;
     $('#iconDashboard').css("color", "#94a3b8") ;
+    $('#editCategoriesPage').addClass('hidden');
 }
 
 function switchToDashboard(){
-    $('#dashboard').removeClass('hidden');
-    $('#settings').addClass('hidden');
-    $('#authors').addClass('hidden');
-    $('#articles').addClass('hidden');
+    $('#dashboardPage').removeClass('hidden');
+    $('#categoriesPage').addClass('hidden');
+    $('#authorsPage').addClass('hidden');
+    $('#articlesPage').addClass('hidden');
     $('#dashboardHover').css("color", "#f97316") ;
     $('#iconDashboard').css("color", "#f97316") ;
-    $('#settingsHover').css("color", "#94a3b8") ;
-    $('#iconSettings').css("color", "#94a3b8") ;
+    $('#categoriesHover').css("color", "#94a3b8") ;
+    $('#iconCategories').css("color", "#94a3b8") ;
     $('#authorsHover').css("color", "#94a3b8") ;
     $('#iconAuthors').css("color", "#94a3b8") ;
     $('#articlesHover').css("color", "#94a3b8") ;
     $('#iconArticles').css("color", "#94a3b8") ;
+    $('#editCategoriesPage').addClass('hidden');
+
+}
+
+function switchToEditCategoryPage(){
+    $('#editCategoriesPage').removeClass('hidden');
+    $('#categoriesPage').addClass('hidden');
 }
 
 
@@ -165,3 +175,30 @@ function validationPassword(){
         $('#register').attr('type', "button");
     }
 }
+
+//CRUD
+
+function editCategory(id){
+    let categoryId          = document.querySelector(`#categoryId${id}`);
+    let categoryName        = document.querySelector(`#categoryName${id}`);
+    let categoryNameValue   = document.getElementById('currentCategoryName') ;
+    let categoryIdValue     = document.getElementById('categoryId') ;
+
+    categoryNameValue.value = categoryName.textContent ;
+    categoryIdValue.value   = categoryId.textContent ;
+}
+
+function updateCategory(){
+    let categoryName = document.getElementById('newCategoryName').value ;
+    console.log(categoryName);
+    $.post('../../Classes/Category.php',{
+        submit:true,
+        newCategoryName:categoryName,
+    }, function(){
+        alert('update successfully!');
+        switchToCategories();
+        categoryName = "" ;
+
+    })
+}
+

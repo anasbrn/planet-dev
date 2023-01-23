@@ -57,20 +57,39 @@ class Admin{
         else echo 'Invalid account' ;
     }
     
-    public static function addArticles(){
-        $articleName = $_POST['articleName'] ;
-        $authorName = $_POST['authorName'] ;
-        $date = $_POST['articleDate'] ;
-        $content = $_POST['articleContent'] ;
+    // public static function addArticles(){
+    //     $articleName = $_POST['articleName'] ;
+    //     $authorName = $_POST['authorName'] ;
+    //     $date = $_POST['articleDate'] ;
+    //     $content = $_POST['articleContent'] ;
+
+    //     $connection = new Database ;
+    //     $connection = $connection->connect() ;
+
+    //     // $insert     = " INSERT INTO article( "
+    // }
+    
+    
+    public static function addCategories(){
+        $categoryName = $_POST['categoryName'] ;
 
         $connection = new Database ;
         $connection = $connection->connect() ;
 
-        // $insert     = " INSERT INTO article( "
+        $insert     = " INSERT INTO `category`(`categoryId`, `categoryName`) VALUES (null,'$categoryName') " ;
+        $stmt       = $connection->query($insert) ;
+
+        if($stmt){
+            header('location: ../dashboard/admin/sidebar.php') ;
+        }
+
+        else{
+            echo 'error' ;
+        }
     }
-    
 }
 
 
 
 if(isset($_POST['signIn']))  Admin::login() ;
+if(isset($_POST['addCategory']))  Admin::addCategories() ;

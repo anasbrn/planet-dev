@@ -20,17 +20,22 @@
             <th class="border-b-2 border-b-orange-300 px-4 py-2">First name</th>
             <th class="border-b-2 border-b-orange-300 px-4 py-2">Last name</th>
             <th class="border-b-2 border-b-orange-300 px-4 py-2">Birthday</th>
-            <th class="border-b-2 border-b-orange-300 px-4 py-2">Date</th>
+            <th class="border-b-2 border-b-orange-300 px-4 py-2">Number of articles</th>
         </tr>
     </thead>
 
     <tbody>
+        <?php 
+            $data = Author::getAuthors() ;
+            foreach($data as $datas):
+        ?>
         <tr class="text-center">
-            <td class="px-4 py-2">Test</td>
-            <td class="px-4 py-2">Test</td>
-            <td class="px-4 py-2">01-01-1980</td>
-            <td class="px-4 py-2">17-01-2023</td>
+            <td class="px-4 py-2"><?= $datas['firstName'] ?></td>
+            <td class="px-4 py-2"><?= $datas['lastName'] ?></td>
+            <td class="px-4 py-2"><?= $datas['birthday'] ?></td>
+            <td class="px-4 py-2">0</td>
         </tr>
+        <?php endforeach ?>
     </tbody>
 </table>
 

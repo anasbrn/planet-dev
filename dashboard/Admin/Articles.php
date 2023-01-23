@@ -26,13 +26,18 @@
     </thead>
 
     <tbody>
+        <?php
+            $data = Article::getArticles() ;
+            foreach ($data as $datas) :
+        ?>
         <tr class="text-center">
-            <td class="px-4 py-2">Test</td>
-            <td class="px-4 py-2">Lorem ipsum dolor sit ametci repellendus q</td>
-            <td class="px-4 py-2">Test</td>
-            <td class="px-4 py-2">Test</td>
-            <td class="px-4 py-2">17-01-2023</td>
+            <td class="px-4 py-2"><?= $datas['articleName'] ?></td>
+            <td class="px-4 py-2"><?= $datas['content'] ?></td>
+            <td class="px-4 py-2"><?= $datas['category'] ?></td>
+            <td class="px-4 py-2"><?= $datas['firstName'].' '.$datas['lastName'] ?></td>
+            <td class="px-4 py-2"><?= $datas['datePub'] ?></td>
         </tr>
+        <?php endforeach ?>
     </tbody>
 </table>
 
@@ -57,8 +62,29 @@
                     </div>
 
                     <div>
-                        <label for="authorName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Author name</label>
-                        <input type="text" name="authorName" id="authorName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Enter name of the author" required>
+                        <label for="categories" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select a category</label>
+                        <select id="categories" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Choose a category</option>
+                            <?php
+                                $data = Category::getCategories() ;
+                                foreach ($data as $datas) :
+                            ?>
+                            <option value="1"><?= $datas['categoryName'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="authors" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an author</label>
+                        <select id="authors" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option selected>Choose an author</option>
+                            <?php
+                                $data = Author::getAuthors() ;
+                                foreach ($data as $datas) :
+                            ?>
+                            <option value="1"><?= $datas['firstName'].' '.$datas['lastName'] ?></option>
+                            <?php endforeach ?>
+                        </select>
                     </div>
 
                     <div>
