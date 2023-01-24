@@ -11,6 +11,9 @@ class Author{
         $stmt       = $connection->query($getAuthors) ;
         $data       = $stmt->fetchAll() ;
 
-        return $data ;
+        $getData = json_encode($data) ;
+        echo $getData ;
     }
 }
+
+if(isset($_POST['getAuthor'])) Author::getAuthors() ;

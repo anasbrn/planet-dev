@@ -78,14 +78,53 @@ class Admin{
 
         $insert     = " INSERT INTO `category`(`categoryId`, `categoryName`) VALUES (null,'$categoryName') " ;
         $stmt       = $connection->query($insert) ;
+    }
 
-        if($stmt){
-            header('location: ../dashboard/admin/sidebar.php') ;
-        }
+    public static function addAuthor(){
+        $firstName = $_POST['authorFirstName'] ;
+        $lastName = $_POST['authorLastName'] ;
+        $birthday = $_POST['authorBirthday'] ;
 
-        else{
-            echo 'error' ;
-        }
+        $connection = new Database ;
+        $connection = $connection->connect() ;
+
+        $insert     = " INSERT INTO `author`(`authorId`, `firstName`, `lastName`, `birthday`) VALUES (null, '$firstName','$lastName','$birthday') " ;
+        $stmt       = $connection->query($insert) ;
+    }
+
+    public static function updateauthor(){
+        $authorId     = $_POST['authorId'] ;
+        $firstName     = $_POST['newAuthorFirstName'] ;
+        $lastName     = $_POST['newAuthorLastName'] ;
+        $birthday     = $_POST['newAuthorBirthday'] ;
+        $connection     = new Database ;
+        $connection     = $connection->connect() ;
+
+        $update         = " UPDATE author SET firstName = '$firstName', lastName = '$lastName', birthday = '$birthday'  WHERE authorId = $authorId" ;
+        $stmt           = $connection->query($update) ;
+    }
+
+    public static function deleteAuthor(){
+        $authorId     = $_POST['authorId'] ;
+        $connection     = new Database ;
+        $connection     = $connection->connect() ;
+
+        $delete         = " DELETE FROM author WHERE authorId = $authorId " ;
+        $stmt           = $connection->query($delete) ;
+    }
+    
+    public static function updateArticle(){
+        $articleId     = $_POST['articleId'] ;
+        $articleName     = $_POST['newArticleName'] ;
+        $articleContent     = $_POST['newArticleContent'] ;
+        $category     = $_POST['newArticleCategory'] ;
+        $author     = $_POST['newArticleAuthor'] ;
+        $date     = $_POST['newArticleDate'] ;
+        $connection     = new Database ;
+        $connection     = $connection->connect() ;
+
+        $update         = " UPDATE article SET articleName = '$articleName', content = '$articleContent', datePub = '$date', authorId = '$author', categoryId = '$category'  WHERE articleId = $articleId" ;
+        $stmt           = $connection->query($update) ;
     }
 }
 
@@ -93,3 +132,7 @@ class Admin{
 
 if(isset($_POST['signIn']))  Admin::login() ;
 if(isset($_POST['addCategory']))  Admin::addCategories() ;
+if(isset($_POST['addAuthor'])) Admin::addAuthor() ;
+if(isset($_POST['updateAuthor'])) Admin::updateAuthor() ;
+if(isset($_POST['deleteAuthor'])) Admin::deleteAuthor() ;
+if(isset($_POST['updateArticle'])) Admin::updateArticle() ;

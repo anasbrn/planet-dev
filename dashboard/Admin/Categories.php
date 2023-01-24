@@ -23,20 +23,8 @@
         </tr>
     </thead>
 
-    <tbody>
-        <?php 
-            $data = Category::getCategories() ;
-            foreach($data as $datas):
-        ?>
-        <tr class="text-center">
-            <td class="px-4 py-2" id="categoryId<?= $datas['categoryId'] ?>"><?= $datas['categoryId'] ?></td>
-            <td class="px-4 py-2" id="categoryName<?= $datas['categoryId'] ?>"><?= $datas['categoryName'] ?></td>
-            <td class="px-4 py-2">
-                <a class="rounded p-2 bg-slate-200 focus:bg-slate-300" onclick="switchToEditCategoryPage(); editCategory(<?= $datas['categoryId'] ?>)" style="cursor:pointer;"><i class="fa fa-pen text-orange-500 hover:text-orange-800"></i></a>
-                <a class="rounded p-2 bg-slate-200 focus:bg-slate-300"><i class="fa fa-trash text-orange-500 hover:text-orange-800"></i></a>
-            </td>
-        </tr>
-        <?php endforeach ?>
+    <tbody  id="categoryRows">
+            
     </tbody>
 </table>
 
@@ -53,14 +41,14 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add category</h3>
-                <form class="space-y-6" action="../../Classes/Admin.php" method="POST">
+                <div class="space-y-6">
                     <div>
                         <label for="categoryName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Category name</label>
                         <input type="text" name="categoryName" id="categoryName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Enter the name of the category" required>
                     </div>
         
-                    <button name="addCategory" type="submit" class="w-full text-white bg-orange-500 hover:bg-orange-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
-                </form>
+                    <button name="addCategory" type="submit" onclick="addCategory()" class="w-full text-white bg-orange-500 hover:bg-orange-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
+                </div>
             </div>
         </div>
     </div>

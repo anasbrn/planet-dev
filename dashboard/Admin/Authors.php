@@ -21,21 +21,12 @@
             <th class="border-b-2 border-b-orange-300 px-4 py-2">Last name</th>
             <th class="border-b-2 border-b-orange-300 px-4 py-2">Birthday</th>
             <th class="border-b-2 border-b-orange-300 px-4 py-2">Number of articles</th>
+            <th class="border-b-2 border-b-orange-300 px-4 py-2">Actions</th>
         </tr>
     </thead>
 
-    <tbody>
-        <?php 
-            $data = Author::getAuthors() ;
-            foreach($data as $datas):
-        ?>
-        <tr class="text-center">
-            <td class="px-4 py-2"><?= $datas['firstName'] ?></td>
-            <td class="px-4 py-2"><?= $datas['lastName'] ?></td>
-            <td class="px-4 py-2"><?= $datas['birthday'] ?></td>
-            <td class="px-4 py-2">0</td>
-        </tr>
-        <?php endforeach ?>
+    <tbody id="authorRows">
+        
     </tbody>
 </table>
 
@@ -52,7 +43,7 @@
             </button>
             <div class="px-6 py-6 lg:px-8">
                 <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Add author</h3>
-                <form class="space-y-6" action="#">
+                <div class="space-y-6">
                     <div>
                         <label for="authorFirstName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First name</label>
                         <input type="text" name="authorFirstName" id="authorFirstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Enter the firstname of the author" required>
@@ -60,7 +51,7 @@
                     
                     <div>
                         <label for="authorLastName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last name</label>
-                        <input type="text" name="authorLastName" id="authorLasstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Enter the lastname of the author" required>
+                        <input type="text" name="authorLastName" id="authorLastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Enter the lastname of the author" required>
                     </div>
 
     
@@ -69,8 +60,9 @@
                         <input type="date" name="authorBirthday" id="authorBirthday" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-orange-500 focus:border-orange-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required>
                     </div>
         
-                    <button type="submit" class="w-full text-white bg-orange-500 hover:bg-orange-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
-                </form>
+                    <button name="addAuthor" type="submit" onclick="addAuthor()" class="w-full text-white bg-orange-500 hover:bg-orange-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add</button>
+
+                </div>
             </div>
         </div>
     </div>

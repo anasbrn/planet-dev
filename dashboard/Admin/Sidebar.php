@@ -36,17 +36,17 @@
 
                 <div class="mb-10">
                     <i class="fa fa-newspaper p-2 bg-slate-200 rounded text-slate-400 mr-3" id="iconArticles"></i>
-                    <a class="text-slate-400" style="cursor: pointer;" onclick="switchToArticles()" id="articlesHover">Articles</a>
+                    <a class="text-slate-400" style="cursor: pointer;" onclick="switchToArticles(); getCategory()" name="getArticle" id="articlesHover">Articles</a>
                 </div>
 
                 <div class="mb-10">
                     <i class="fa fa-person-chalkboard p-2 bg-slate-200 rounded text-slate-400 mr-3" id="iconAuthors"></i>
-                    <a class="text-slate-400" style="cursor: pointer;" onclick="switchToAuthors()" id="authorsHover">Authors</a>
+                    <a class="text-slate-400" style="cursor: pointer;" onclick="switchToAuthors(); getAuthor()" name="getAuthor" id="authorsHover">Authors</a>
                 </div>
 
                 <div class="mb-10">
                     <i class="fa fa-folder-open p-2 bg-slate-200 rounded text-slate-400 mr-3" id="iconCategories"></i>
-                    <a class="text-slate-400" style="cursor: pointer;" onclick="switchToCategories()" id="categoriesHover">Categories</a>
+                    <a class="text-slate-400" style="cursor: pointer;" onclick="switchToCategories(); getCategory()" name="getCategory" id="categoriesHover">Categories</a>
                 </div>
 
                 <div class="mt-44 mb-5 hover:color-orange-500">
@@ -77,11 +77,20 @@
         <div id="editCategoriesPage" class="hidden">
             <?php include 'editCategory.php' ; ?>
         </div>
+
+        <div id="editAuthorsPage" class="hidden">
+            <?php include 'editAuthors.php' ; ?>
+        </div>
+
+        <div id="editArticlesPage" class="hidden">
+            <?php include 'editArticles.php' ; ?>
+        </div>
     </section>
 
 
 
 
+    <script src="../../Scripts/dataCategory.js"></script>
     <script src="../../Scripts/app.js"></script>
 </body>
 </html>
